@@ -10,5 +10,9 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": true,
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "eslint.validate": ["astro", "typescript", "typescriptreact"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
 }
