@@ -11,6 +11,9 @@
     "format": "pnpm exec prettier --write .",
     "lint": "pnpm exec eslint ."
   },
+  "engines": {
+    "node": ">= 22.0.0"
+  },
   "dependencies": {
     "@astrojs/react": "^4.1.2",
     "@types/react": "^19.0.2",
