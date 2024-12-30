@@ -1,16 +1,25 @@
 import eslintPluginAstro from 'eslint-plugin-astro';
+import react from 'eslint-plugin-react';
+import tseslint from 'typescript-eslint';
 
 export default [
   ...eslintPluginAstro.configs.recommended,
   ...eslintPluginAstro.configs['jsx-a11y-recommended'],
-  ...eslintPluginAstro.configs['react-recommended'],
-  ...eslintPluginAstro.configs['react-hooks-recommended'],
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.astro'],
+    plugins: {
+      react,
+    },
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
     rules: {
       'astro/no-exports-from-components': 'error',
       'react/react-in-jsx-scope': 'off',
-      '@typescript-eslint/no-unused-vars': 'warn',
       'react/prop-types': 'off',
     },
   },
