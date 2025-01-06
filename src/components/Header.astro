@@ -1,0 +1,70 @@
+---
+import npmLogo from '../assets/npm.svg';
+import githubLogo from '../assets/github.svg';
+
+interface Link {
+  href: string;
+  text?: string;
+  logo?: ImageMetadata;
+}
+
+const links: Link[] = [
+  {
+    href: 'https://www.npmjs.com/package/image-palette-extractor',
+    text: 'Npm package',
+    logo: npmLogo,
+  },
+  {
+    href: 'https://github.com/LuizJarduli/image-palette-extractor?tab=readme-ov-file#image-palette-extractor',
+    text: 'Github repository',
+    logo: githubLogo,
+  },
+];
+---
+
+<nav class="header__nav">
+  <ul class="header__nav-list">
+    {
+      links.map(link => (
+        <li class="header__nav-item">
+          <a class="header__nav-link" href={link.href}>
+            {link.logo && <img class="header__nav-logo" src={link.logo.src} alt={link.text} />}
+            {link.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .header__nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .header__nav-list {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+  }
+
+  .header__nav-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .header__nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .header__nav-logo {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+</style>
