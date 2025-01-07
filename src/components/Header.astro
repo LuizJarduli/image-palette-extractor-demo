@@ -27,9 +27,8 @@ const links: Link[] = [
     {
       links.map(link => (
         <li class="header__nav-item">
-          <a class="header__nav-link" href={link.href}>
+          <a class="header__nav-link" href={link.href} target="_blank">
             {link.logo && <img class="header__nav-logo" src={link.logo.src} alt={link.text} />}
-            {link.text}
           </a>
         </li>
       ))
@@ -40,14 +39,17 @@ const links: Link[] = [
 <style>
   .header__nav {
     display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    width: 100dvw;
   }
 
   .header__nav-list {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     list-style: none;
+    padding: unset;
   }
 
   .header__nav-item {
@@ -59,12 +61,21 @@ const links: Link[] = [
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--color-text);
     text-decoration: none;
+  }
+
+  .header__nav-logo:first-of-type {
+    width: 4rem;
   }
 
   .header__nav-logo {
     width: 1.5rem;
     height: 1.5rem;
+    filter: opacity(0.5);
+    transition: filter 0.1s ease-in;
+  }
+
+  .header__nav-logo:hover {
+    filter: opacity(1);
   }
 </style>
