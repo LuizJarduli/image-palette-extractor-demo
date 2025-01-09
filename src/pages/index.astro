@@ -3,11 +3,15 @@ import UploadWidget from '../components/react/UploadWidget';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/astro/Header.astro';
 import Content from '../components/astro/Content.astro';
+import ProgressBar from '../components/react/ProgressBar.tsx';
+import Greetings from '../components/astro/Greetings.astro';
 ---
 
 <Layout>
   <Header />
   <Content>
+    <ProgressBar max={100} value={50} client:only="true" />
+    <Greetings />
     <UploadWidget client:only="true" />
   </Content>
 </Layout>
