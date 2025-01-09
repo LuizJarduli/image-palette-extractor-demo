@@ -15,17 +15,21 @@
     position: relative;
 
     & .content-section {
-      width: 400px;
+      width: 50%;
       aspect-ratio: 1 / 1;
       background-color: #09090b;
       border-radius: 8px;
       box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.1);
       animation: slide-up 0.3s ease-in-out forwards;
       position: inherit;
-      padding: 1rem;
+      padding: 2rem;
 
       @media (prefers-reduced-motion: reduce) {
         animation: none;
+      }
+
+      @media screen and (max-width: 768px) {
+        width: 90%;
       }
     }
   }
