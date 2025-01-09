@@ -1,13 +1,13 @@
 ---
-import DemoWidget from '../components/DemoWidget';
+import UploadWidget from '../components/react/UploadWidget';
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Content from '../components/Content.astro';
+import Header from '../components/astro/Header.astro';
+import Content from '../components/astro/Content.astro';
 ---
 
 <Layout>
   <Header />
   <Content>
-    <DemoWidget />
+    <UploadWidget client:only="true" />
   </Content>
 </Layout>
