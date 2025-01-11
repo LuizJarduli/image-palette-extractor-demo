@@ -1,5 +1,5 @@
 import type { JSX } from 'astro/jsx-runtime';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import uploadIcon from '../../assets/upload.svg?url';
 
 const DropzoneContainer = styled.div`
