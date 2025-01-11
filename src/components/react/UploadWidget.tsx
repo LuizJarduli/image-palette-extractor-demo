@@ -1,5 +1,6 @@
 import type { JSX } from 'astro/jsx-runtime';
 import styled from 'styled-components';
+import uploadIcon from '../../assets/upload.svg?url';
 
 const DropzoneContainer = styled.div`
   display: flex;
@@ -9,13 +10,15 @@ const DropzoneContainer = styled.div`
   width: 100%;
   height: 200px;
   margin: 0 auto;
-  border: 2px dashed #cfcfcf;
   border-radius: 10px;
-  background-color: inherit;
+  background-color: #22222a;
   cursor: pointer;
-  transition: background-color 0.3s;
 `;
 
 export default function UploadWidget(): JSX.Element {
-  return <DropzoneContainer></DropzoneContainer>;
+  return (
+    <DropzoneContainer>
+      <img src={uploadIcon} alt="Upload Icon" />
+    </DropzoneContainer>
+  );
 }
