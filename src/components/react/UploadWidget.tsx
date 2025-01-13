@@ -1,6 +1,7 @@
 import type { JSX } from 'astro/jsx-runtime';
 import { styled } from 'styled-components';
 import uploadIcon from '../../assets/upload.svg?url';
+import { Button } from './Button';
 
 const DropzoneContainer = styled.div`
   display: flex;
@@ -32,6 +33,7 @@ export default function UploadWidget(): JSX.Element {
       <UploadIcon src={uploadIcon} alt="Upload Icon" />
       <CustomText>Drop images here</CustomText>
       <CustomText>Or</CustomText>
+      <Button label="Upload a file" size="small" />
     </DropzoneContainer>
   );
 }
