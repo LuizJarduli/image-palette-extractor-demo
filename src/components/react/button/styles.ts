@@ -1,16 +1,7 @@
-import type React from 'react';
-import { css, styled } from 'styled-components';
+import { styled, css } from 'styled-components';
+import type { ButtonProps } from './Button';
 
-interface ButtonProps {
-  label: string;
-  onClick?: () => void;
-  variant?: 'primary' | 'secondary';
-  size?: 'small' | 'medium' | 'large';
-  disabled?: boolean;
-  fullWidth?: boolean;
-}
-
-const DSButton = styled.button<Omit<ButtonProps, 'label'>>`
+export const DSButton = styled.button<Omit<ButtonProps, 'label'>>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -97,24 +88,3 @@ const DSButton = styled.button<Omit<ButtonProps, 'label'>>`
     cursor: not-allowed;
   }
 `;
-
-export const Button: React.FC<ButtonProps> = ({
-  label,
-  disabled,
-  fullWidth,
-  onClick,
-  size,
-  variant,
-}) => {
-  return (
-    <DSButton
-      onClick={onClick}
-      variant={variant}
-      size={size}
-      disabled={disabled}
-      fullWidth={fullWidth}
-    >
-      {label}
-    </DSButton>
-  );
-};
