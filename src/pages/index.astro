@@ -1,15 +1,15 @@
 ---
-import UploadWidget from '../components/react/upload-widget/UploadWidget';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/astro/Header.astro';
 import Content from '../components/astro/Content.astro';
 import Greetings from '../components/astro/Greetings.astro';
+import App from '../components/react/app/App';
 ---
 
 <Layout>
   <Header />
   <Content>
     <Greetings />
-    <UploadWidget client:load />
+    <App client:load />
   </Content>
 </Layout>
