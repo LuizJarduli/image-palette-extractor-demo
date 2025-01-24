@@ -76,3 +76,7 @@ export const CustomText = styled.p`
   font-size: 0.75rem;
   color: #fff;
 `;
+
+export const HiddenInputFile = styled.input`
+  display: none;
+`;
