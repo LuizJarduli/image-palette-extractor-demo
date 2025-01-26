@@ -32,6 +32,9 @@ export default function UploadWidget(): JSX.Element {
     handleDragOver(event, false);
     const { files } = event.dataTransfer;
     const file = files.item(0);
+    const { name } = file || {};
+
+    if (name && !isValidFileExtension(name)) return console.error('[DEBUG] Format not supported');
 
     console.log(await extractImagePalette(file));
   };
@@ -59,6 +62,12 @@ export default function UploadWidget(): JSX.Element {
       console.error(error);
       return null;
     }
+  };
+
+  const isValidFileExtension = (fileName: string): boolean => {
+    const fileExtension = fileName.split('.')?.at(-1) ?? '';
+
+    return fileExtension in AcceptedExtensions;
   };
 
   const loadFileBase64 = async (file: File): Promise<string | null> => {
