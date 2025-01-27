@@ -5,10 +5,13 @@ import { useReleaseUpload } from '../release-upload/ReleaseUploadHook';
 import { AcceptedExtensions } from './AcceptedExtensions';
 import { ColorPalette } from 'image-palette-extractor';
 import Upload from '../upload/Upload';
+import { LoadingState } from './LoadingState';
+import ProgressWidget from '../progress-widget/ProgressWidget';
 
 export default function UploadWidget(): JSX.Element {
   const [isDragOver, setDragOver] = useState<boolean>(false);
   const { showAlert, hideAlert } = useReleaseUpload();
+  const [loadingState, setLoadingState] = useState<[string, number] | null>(null);
 
   const getAllowedExtensions = (): string => {
     return Object.keys(AcceptedExtensions)
@@ -32,23 +35,33 @@ export default function UploadWidget(): JSX.Element {
     const file = files.item(0);
     const { name } = file || {};
 
+    setLoadingState(LoadingState.PROCESSING_FILE);
+
     if (name && !isValidFileExtension(name)) return console.error('[DEBUG] Format not supported');
 
     console.log(await extractImagePalette(file));
+
+    setLoadingState(LoadingState.DONE);
   };
 
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
 
+    setLoadingState(LoadingState.PROCESSING_FILE);
+
     if (files && files.length > 0) {
       const file = files[0];
 
       console.log(await extractImagePalette(file));
+
+      setLoadingState(LoadingState.DONE);
     }
   };
 
   const extractImagePalette = async (file: File | null): Promise<string[] | null> => {
     if (!file) return null;
+
+    setLoadingState(LoadingState.EXTRACTING_PALETTE);
 
     const base64 = await loadFileBase64(file);
 
@@ -93,7 +106,11 @@ export default function UploadWidget(): JSX.Element {
       onDragLeave={event => handleDragOver(event, false)}
       onDrop={event => handleOnDrop(event)}
     >
-      <Upload onFileChange={handleFileChange} accept={getAllowedExtensions()} multiple={false} />
+      {loadingState ? (
+        <ProgressWidget label={loadingState[0]} value={loadingState[1]} />
+      ) : (
+        <Upload onFileChange={handleFileChange} accept={getAllowedExtensions()} multiple={false} />
+      )}
     </DropzoneContainer>
   );
 }
