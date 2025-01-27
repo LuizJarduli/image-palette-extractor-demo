@@ -5,7 +5,7 @@ import {
   ReleaseUploadSnackBar,
   ReleaseUploadSnackBarText,
 } from './style';
-import { UploadIcon } from '../upload-widget/styles';
+import { UploadIcon } from '../upload/styles';
 import releaseUploadIcon from '../../../assets/release-upload.svg?url';
 import { useReleaseUpload } from './ReleaseUploadHook';
 
