@@ -1,5 +1,5 @@
 import type { JSX } from 'astro/jsx-runtime';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 const ProgressBarTrack = styled.div`
   width: 100%;
