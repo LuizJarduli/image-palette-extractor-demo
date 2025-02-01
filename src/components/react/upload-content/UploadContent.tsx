@@ -3,9 +3,10 @@ import ProgressWidget from '../progress-widget/ProgressWidget';
 import Upload from '../upload/Upload';
 import { useUploadContext } from '../upload-widget/UploadContext';
 import { AcceptedExtensions } from '../upload-widget/AcceptedExtensions';
+import ResultWidget from '../result-widget/ResultWidget';
 
 export default function UploadContent(): JSX.Element {
-  const { loadingState, extractedColors, handleFileChange } = useUploadContext();
+  const { loadingState, extractedColors, handleFileChange, imageSrc } = useUploadContext();
 
   const getAllowedExtensions = (): string => {
     return Object.keys(AcceptedExtensions)
@@ -14,7 +15,7 @@ export default function UploadContent(): JSX.Element {
   };
 
   if (extractedColors) {
-    return <div>{JSON.stringify(extractedColors)}</div>;
+    return <ResultWidget colors={extractedColors} imageSrc={imageSrc} />;
   }
 
   return (

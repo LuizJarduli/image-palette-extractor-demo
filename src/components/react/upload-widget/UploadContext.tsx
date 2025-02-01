@@ -13,6 +13,7 @@ interface UploadContextType {
   extractedColors: ColorPaletteResult;
   setExtractedColors: (colors: ColorPaletteResult) => void;
   isDragOver: boolean;
+  imageSrc: string;
   handleDragOver: (event: React.DragEvent<HTMLDivElement>, isDraggingOver: boolean) => void;
   handleFileChange: (event: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
   handleOnDrop: (event: React.DragEvent<HTMLDivElement>) => Promise<void>;
@@ -25,6 +26,7 @@ export const UploadProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [extractedColors, setExtractedColors] = useState<ColorPaletteResult>(null);
   const [isDragOver, setDragOver] = useState<boolean>(false);
   const { showAlert, hideAlert } = useReleaseUpload();
+  const [imageSrc, setImageSrc] = useState<string>('');
 
   const handleDragOver = (event: React.DragEvent<HTMLDivElement>, isDraggingOver: boolean) => {
     const actionHandler = isDraggingOver ? showAlert : hideAlert;
@@ -73,7 +75,8 @@ export const UploadProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     if (!base64) return null;
 
     try {
-      return ColorPalette.getColors(base64, 10);
+      setImageSrc(base64);
+      return ColorPalette.getColors(base64, 20);
     } catch (error) {
       console.error(error);
       return null;
@@ -106,6 +109,7 @@ export const UploadProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         handleDragOver,
         handleFileChange,
         handleOnDrop,
+        imageSrc,
       }}
     >
       {children}
