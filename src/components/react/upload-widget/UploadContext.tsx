@@ -76,7 +76,7 @@ export const UploadProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
     try {
       setImageSrc(base64);
-      return ColorPalette.getColors(base64, 20);
+      return ColorPalette.getColors(base64, 5, 51);
     } catch (error) {
       console.error(error);
       return null;

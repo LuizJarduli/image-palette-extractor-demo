@@ -20,7 +20,7 @@ export const Divider = styled.div`
 export const ColorContainer = styled.div`
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(6.25rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(8.25rem, 1fr));
   grid-row-gap: 0.5rem;
   grid-column-gap: 0.5rem;
 `;
