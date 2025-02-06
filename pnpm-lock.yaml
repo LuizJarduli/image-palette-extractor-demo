@@ -18,8 +18,8 @@ dependencies:
     specifier: ^5.1.1
     version: 5.1.1(typescript@5.7.2)
   image-palette-extractor:
-    specifier: ^1.0.29
-    version: 1.0.29
+    specifier: ^1.1.0
+    version: 1.1.0
   react:
     specifier: ^19.0.0
     version: 19.0.0
@@ -3123,8 +3123,8 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
-  /image-palette-extractor@1.0.29:
-    resolution: {integrity: sha512-rzHnuVHNbbYwjjp7eHj4zsw5dR/ggx30E9EcPycHF1KV9LcPer9okrV1W+DOTDdSI72Sww7WOgzMsTeWznqY9w==}
+  /image-palette-extractor@1.1.0:
+    resolution: {integrity: sha512-XpIqPmdXpIRBdmFdr/PPHTaSYlkTUD4sqy/an6VlCyuqkjnMTY2VWZHLUFL0EvOLjoeTH2Gtxt7uvEF6wA889A==}
     dev: false
 
   /import-fresh@3.3.0:
