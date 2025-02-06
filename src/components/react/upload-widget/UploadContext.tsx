@@ -9,9 +9,9 @@ type ColorPaletteResult = string[] | null;
 
 interface UploadContextType {
   loadingState: LoadingState;
-  setLoadingState: (state: LoadingState) => void;
+  setLoadingState: (state: LoadingState | null) => void;
   extractedColors: ColorPaletteResult;
-  setExtractedColors: (colors: ColorPaletteResult) => void;
+  setExtractedColors: (colors: ColorPaletteResult | null) => void;
   isDragOver: boolean;
   imageSrc: string;
   handleDragOver: (event: React.DragEvent<HTMLDivElement>, isDraggingOver: boolean) => void;
@@ -22,8 +22,8 @@ interface UploadContextType {
 const UploadContext = createContext<UploadContextType | undefined>(undefined);
 
 export const UploadProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [loadingState, setLoadingState] = useState<LoadingState>(null);
-  const [extractedColors, setExtractedColors] = useState<ColorPaletteResult>(null);
+  const [loadingState, setLoadingState] = useState<LoadingState | null>(null);
+  const [extractedColors, setExtractedColors] = useState<ColorPaletteResult | null>(null);
   const [isDragOver, setDragOver] = useState<boolean>(false);
   const { showAlert, hideAlert } = useReleaseUpload();
   const [imageSrc, setImageSrc] = useState<string>('');
@@ -76,7 +76,7 @@ export const UploadProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
     try {
       setImageSrc(base64);
-      return ColorPalette.getColors(base64, 5, 51);
+      return ColorPalette.getColors(base64, 6, 51);
     } catch (error) {
       console.error(error);
       return null;
