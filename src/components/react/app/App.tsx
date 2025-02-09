@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
-import ReleaseUploadProvider from '../release-upload/ReleaseUploadProvider';
-import ReleaseUpload from '../release-upload/ReleaseUpload';
-import UploadWidget from '../upload-widget/UploadWidget';
+import UploadWidget from '../upload/upload-widget/UploadWidget';
+import ReleaseUploadProvider from '../upload/release-upload/ReleaseUploadProvider';
+import ReleaseUpload from '../upload/release-upload/ReleaseUpload';
 
 export default function App(): JSX.Element {
   return (

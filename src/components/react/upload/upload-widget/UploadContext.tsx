@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState } from 'react';
+import { LoadingState } from './LoadingState';
 import { ColorPalette } from 'image-palette-extractor';
-import { useReleaseUpload } from '../upload/release-upload/ReleaseUploadHook';
-import { LoadingState } from '../upload/upload-widget/LoadingState';
-import { AcceptedExtensions } from '../upload/upload-widget/AcceptedExtensions';
+import { AcceptedExtensions } from './AcceptedExtensions';
+import { useReleaseUpload } from '../release-upload/ReleaseUploadHook';
 
 type LoadingState = [string, number] | null;
 type ColorPaletteResult = string[] | null;

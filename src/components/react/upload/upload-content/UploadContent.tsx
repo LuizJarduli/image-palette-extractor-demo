@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
-import ProgressWidget from '../progress-widget/ProgressWidget';
-import Upload from '../upload/Upload';
+import ProgressWidget from '../../progress-widget/ProgressWidget';
+import Upload from '../Upload';
 import { useUploadContext } from '../upload-widget/UploadContext';
 import { AcceptedExtensions } from '../upload-widget/AcceptedExtensions';
 import ResultWidget from '../result-widget/ResultWidget';

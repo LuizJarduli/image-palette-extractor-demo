@@ -5,9 +5,9 @@ import {
   ReleaseUploadSnackBar,
   ReleaseUploadSnackBarText,
 } from './style';
-import { UploadIcon } from '../upload/styles';
-import releaseUploadIcon from '../../../assets/release-upload.svg?url';
+import releaseUploadIcon from '../../../../assets/release-upload.svg?url';
 import { useReleaseUpload } from './ReleaseUploadHook';
+import { UploadIcon } from '../styles';
 
 export default function ReleaseUpload(): JSX.Element | null {
   const { show } = useReleaseUpload();

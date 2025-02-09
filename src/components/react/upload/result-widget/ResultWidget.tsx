@@ -6,8 +6,8 @@ import {
   ImageContainer,
   ResultWidgetContainer,
 } from './style';
-import CardColor from '../card-color/CardColor';
-import { Button } from '../button/Button';
+import CardColor from '../../card-color/CardColor';
+import { Button } from '../../button/Button';
 import { useUploadContext } from '../upload-widget/UploadContext';
 
 export interface ResultWidgetProps {
