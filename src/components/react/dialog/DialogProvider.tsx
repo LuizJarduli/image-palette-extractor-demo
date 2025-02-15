@@ -23,17 +23,11 @@ export default function DialogProvider({ children }: React.PropsWithChildren) {
 
     setDialogProps({ ...props, timeout: effectiveTimeout });
 
-    // Automatically close the dialog after the specified timeout
     setTimeout(() => {
       setDialogProps(null);
       props.onClose?.();
     }, effectiveTimeout);
   }, []);
-
-  const handleClose = useCallback(() => {
-    setDialogProps(null);
-    dialogProps?.onClose?.();
-  }, [dialogProps]);
 
   return (
     <DialogContext.Provider value={{ showDialog }}>
