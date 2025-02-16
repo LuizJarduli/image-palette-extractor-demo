@@ -1,24 +1,18 @@
 import { createContext, useCallback, useState } from 'react';
-import Dialog from './Dialog';
+import Dialog, { type DialogProps } from './Dialog';
 
-export interface DialogProps {
-  title: string;
-  message: string;
-  variant?: 'success' | 'error' | 'warning' | 'info';
-  onClose?: VoidFunction;
-  timeout?: number;
-}
+export type DialogContextDataProps = DialogProps & { onClose?: VoidFunction; timeout?: number };
 
 export interface DialogContextData {
-  showDialog: (props: DialogProps) => void;
+  showDialog: (props: DialogContextDataProps) => void;
 }
 
 export const DialogContext = createContext<DialogContextData | undefined>(undefined);
 
 export default function DialogProvider({ children }: React.PropsWithChildren) {
-  const [dialogProps, setDialogProps] = useState<DialogProps | null>(null);
+  const [dialogProps, setDialogProps] = useState<DialogContextDataProps | null>(null);
 
-  const showDialog = useCallback((props: DialogProps) => {
+  const showDialog = useCallback((props: DialogContextDataProps) => {
     const effectiveTimeout = props.timeout ?? 5000;
 
     setDialogProps({ ...props, timeout: effectiveTimeout });
@@ -31,7 +25,7 @@ export default function DialogProvider({ children }: React.PropsWithChildren) {
 
   return (
     <DialogContext.Provider value={{ showDialog }}>
-      {dialogProps && <Dialog />}
+      {dialogProps && <Dialog {...dialogProps} />}
       {children}
     </DialogContext.Provider>
   );
