@@ -1,4 +1,25 @@
-# Astro Starter Kit: Basics
+
+# image-palette-extractor-demo [![npm version](https://badge.fury.io/js/image-palette-extractor.svg)](https://badge.fury.io/js/image-palette-extractor) [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
+## Overview
+
+Simple web page to demonstrate the usage of the [image-palette-extractor](https://github.com/LuizJarduli/image-palette-extractor) package.
+
+### Support
+
+feel free to buy me a Coffee
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R218MK17)
+
+---
+
+## Build with astro + reactjs
+
+This project was developed using React and Astro to leverage the strengths of both frameworks.
+
+---
+
+## Astro Starter Kit: Basics
 
 ```sh
 npm create astro@latest -- --template basics

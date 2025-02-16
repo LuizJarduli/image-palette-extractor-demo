@@ -1,0 +1,11 @@
+<script is:inline src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
+
+<script>
+  /** @ts-expect-error  Astro and TS do not find the below module that is CDN loaded from ko-fi. */
+  kofiWidgetOverlay.draw('lugalokinho', {
+    type: 'floating-chat',
+    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.background-color': '#323842',
+    'floating-chat.donateButton.text-color': '#fff',
+  });
+</script>

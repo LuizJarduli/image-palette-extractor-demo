@@ -4,6 +4,7 @@ import Header from '../components/astro/Header.astro';
 import Content from '../components/astro/Content.astro';
 import Greetings from '../components/astro/Greetings.astro';
 import App from '../components/react/app/App';
+import KoFiPreview from '../components/astro/KoFiPreview.astro';
 ---
 
 <Layout>
@@ -12,4 +13,5 @@ import App from '../components/react/app/App';
     <Greetings />
     <App client:load />
   </Content>
+  <KoFiPreview />
 </Layout>
