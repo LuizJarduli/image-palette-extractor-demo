@@ -15,7 +15,7 @@ export const popIn = keyframes`
 export const DialogWrapper = styled.dialog`
   border: none;
   z-index: 10;
-  animation: ${popIn} 0.2s ease-in forwards;
+  animation: ${popIn} 0.2s ease-out forwards;
 
   &[open] {
     display: block;
@@ -27,7 +27,7 @@ export const DialogWrapper = styled.dialog`
   }
 
   &:focus {
-    outline-color: transparent;
+    outline: none !important;
   }
 
   &::backdrop {

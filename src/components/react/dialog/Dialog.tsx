@@ -4,7 +4,7 @@ import { DialogContent, DialogHeader, DialogWrapper } from './style';
 export interface DialogProps {
   title: string;
   message: string;
-  variant?: 'success' | 'error' | 'warning' | 'info';
+  variant: 'success' | 'error' | 'warning' | 'info';
 }
 
 export default function Dialog({ title, message, variant }: DialogProps): JSX.Element {

@@ -3,6 +3,7 @@ import { LoadingState } from './LoadingState';
 import { ColorPalette } from 'image-palette-extractor';
 import { AcceptedExtensions } from './AcceptedExtensions';
 import { useReleaseUpload } from '../release-upload/ReleaseUploadHook';
+import { useDialog } from '../../dialog/DialogHook';
 
 type LoadingState = [string, number] | null;
 type ColorPaletteResult = string[] | null;
@@ -27,6 +28,7 @@ export const UploadProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [isDragOver, setDragOver] = useState<boolean>(false);
   const { showAlert, hideAlert } = useReleaseUpload();
   const [imageSrc, setImageSrc] = useState<string>('');
+  const { showDialog } = useDialog();
 
   const handleDragOver = (event: React.DragEvent<HTMLDivElement>, isDraggingOver: boolean) => {
     const actionHandler = isDraggingOver ? showAlert : hideAlert;
@@ -56,7 +58,10 @@ export const UploadProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     const file = files.item(0);
     const { name } = file || {};
 
-    if (name && !isValidFileExtension(name)) return console.error('[DEBUG] Format not supported');
+    if (name && !isValidFileExtension(name)) {
+      showDialog({ title: 'Warning', message: 'Format not supported', variant: 'warning' });
+      return console.error('[DEBUG] Format not supported');
+    }
 
     setLoadingState(LoadingState.PROCESSING_FILE);
 
@@ -68,16 +73,23 @@ export const UploadProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   };
 
   const extractImagePalette = async (file: File): Promise<ColorPaletteResult> => {
-    const base64 = await loadFileBase64(file);
-
     setLoadingState(LoadingState.EXTRACTING_PALETTE);
 
-    if (!base64) return null;
-
     try {
+      const base64 = await loadFileBase64(file);
+
+      if (!base64) return null;
+
       setImageSrc(base64);
-      return ColorPalette.getColors(base64, 6, 51);
+      const result = await ColorPalette.getColors(base64, 6, 51);
+      return result;
     } catch (error) {
+      showDialog({
+        title: 'Error',
+        message:
+          'An unknown error occurred while trying to fetch the color palette. Try again later',
+        variant: 'error',
+      });
       console.error(error);
       return null;
     }
