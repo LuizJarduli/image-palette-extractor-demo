@@ -13,10 +13,6 @@ export const CardContainer = styled.div`
   transition: all 0.3s ease;
   cursor: pointer;
 
-  span {
-    display: none;
-  }
-
   &:hover {
     &::before {
       content: '';
@@ -30,10 +26,6 @@ export const CardContainer = styled.div`
       backdrop-filter: blur(15px);
       border: 1px solid rgba(255, 255, 255, 0.3);
       z-index: 1;
-    }
-
-    span {
-      display: block;
     }
   }
 `;
