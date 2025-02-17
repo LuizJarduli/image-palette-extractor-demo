@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "pnpm exec prettier --write .",
-    "lint": "pnpm exec eslint .",
+    "lint": "pnpm exec eslint . --ignore-pattern '.astro/*'",
     "prepare": "husky"
   },
   "engines": {
