@@ -1,9 +1,13 @@
 
-# image-palette-extractor-demo [![npm version](https://badge.fury.io/js/image-palette-extractor.svg)](https://badge.fury.io/js/image-palette-extractor) [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+# image-palette-extractor-demo [![npm version](https://badge.fury.io/js/image-palette-extractor.svg)](https://badge.fury.io/js/image-palette-extractor) [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)[![Deploy to Github Pages](https://github.com/LuizJarduli/image-palette-extractor-demo/actions/workflows/astro.yml/badge.svg)](https://github.com/LuizJarduli/image-palette-extractor-demo/actions/workflows/astro.yml)
 
 ## Overview
 
 Simple web page to demonstrate the usage of the [image-palette-extractor](https://github.com/LuizJarduli/image-palette-extractor) package.
+
+### Live Demo
+
+Check out the live demo [here](https://luizjarduli.github.io/image-palette-extractor-demo/) to see the image-palette-extractor in action.
 
 ### Support
 
